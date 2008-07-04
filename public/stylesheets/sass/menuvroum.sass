@@ -1,0 +1,74 @@
+#nav
+  :margin 0
+  :padding 0
+  //:list-style-position outside
+  :position relative
+  :line-height 1.5em
+
+  a
+    :display block
+    /*
+      :padding 0px 5px
+      :border 1px solid #333
+      :color #fff
+      :text-decoration none
+      :background-color #333
+
+    &:hover
+      /*
+        :background-color #fff
+        :color #333
+
+  li
+    :float left
+    :position relative
+
+    ul
+      a
+        :width 12em
+        :height auto
+        :float left
+
+      ul
+        :left 12em
+        :margin 0px 0 0 10px
+
+    &:hover ul
+      :display block
+
+      ul
+        :display none
+
+  ul
+    :position absolute
+    :display none
+    :width 12em
+    :top 1.5em
+
+    ul
+      :top auto
+
+
+#nav
+  ul
+    :margin 0
+    :padding 0
+
+    :position relative
+    :line-height 1.5em
+
+  li
+    &:hover ul ul ul
+      :display none
+
+      ul
+        :display none
+
+    li
+      &:hover ul
+        :display block
+
+      li
+        &:hover ul, li:hover ul
+          :display block
+

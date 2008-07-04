@@ -1,0 +1,73 @@
+!!! Strict
+/
+  Design by Free CSS Templates
+  http://www.freecsstemplates.org
+  Released for free under a Creative Commons Attribution 2.5 License
+  
+  Title      : Innovation
+  Version    : 1.0
+  Released   : 20080123
+  Description: A wide two-column design suitable for blogs and small websites.
+%html{html_attrs('fr-FR')}
+  %head
+    %meta{:content => "text/html;charset=utf-8","http-equiv"=>"content-type"}/
+    %title Pharmacie Lumières
+    = stylesheet_link_tag 'categories', 'menu'
+    = javascript_include_tag 'jquery'
+    :javascript
+      // Merci à kriesi.
+      $(function(){
+        $("#nav ul").css({display: "none"});
+        $("#nav li").hover(function(){
+          $(this).find('ul:first').fadeIn(400);
+        },function(){
+          $(this).find('ul:first').hide(400);
+        });
+      });
+    %style{:type => 'text/css'}
+      :sass
+        .dontdisplay
+          :display none
+        .center
+          :text-align center
+        #flash_notice
+          :color #363636
+        .clear_all
+          :clear both
+        ul
+          :padding 0 0 0 0.8em
+  %body
+    #header
+      #logo
+        %h1 Pharmacie Lumières
+        %p Vous éclaire dans le choix de vos médicaments
+      #menu
+        %ul#nav
+          = all_categories :all
+    #headerbg &nbsp;
+    #page
+      #content
+        .post
+          #flash_notice= flash[:now] if flash[:now]
+        = yield
+        .donotdisplay.clear_all
+    #footer
+      %p#legal
+        &copy;
+        = Time.now.year
+        Pharmacie Lumières. Tous droits réservés. | Design par
+        %a{ :href => "http://www.freecsstemplates.org/" }
+          Free CSS Templates
+      %p#links
+        %a{ :href => "http://validator.w3.org/check/referer", |
+          :title => "This page validates as XHTML 1.0 Strict" } |
+          %abbr{ :title => "eXtensible HyperText Markup Language" }
+            XHTML
+        |
+        %a{ :href => "http://jigsaw.w3.org/css-validator/check/referer", |
+          :title => "This page validates as CSS" } |
+          %abbr{ :title => "Cascading Style Sheets" }
+            CSS
+        - if authenticated?
+          |
+          = link_to 'Se déconnecter', :controller => :login, :action => :destroy

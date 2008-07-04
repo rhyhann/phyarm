@@ -1,0 +1,14 @@
+#main_post
+  - if authenticated?
+    - form_for @category do |f|
+      .entry
+        %h2= f.label :name, "Nom :"
+        = f.text_field :name
+      .entry
+        %h2= f.label :content, "Contenu :"
+        = f.text_area :content
+      .entry
+        %h2= f.label :category_id, "Catégorie parente :"
+        = f.select :category_id, @categories.collect {|c| [c.name, c.id]}, {:include_blank => true}
+      .entry
+        = submit_tag 'Soumettre'

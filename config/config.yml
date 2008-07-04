@@ -1,0 +1,6 @@
+development:
+  password: development
+production:
+  password: production
+test:
+  password: test

@@ -1,0 +1,8 @@
+#main_post
+  .post
+    - form_for :login, :url => {:action => :create, :method => :post} do |f|
+      .entry
+        %h2= f.label :password, "Mot de Passe :"
+        = f.text_field :password
+      .entry
+        = submit_tag "Submit"

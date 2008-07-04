@@ -1,0 +1,10 @@
+#main_post
+  .post
+    %h1.title= @category.name
+    %p.meta
+      - if authenticated?
+        = link_to 'Edit', edit_category_path(@category)
+    .entry= @category.content
+      
+    - if authenticated?
+      = link_to "Nouvelle catégorie", new_category_path

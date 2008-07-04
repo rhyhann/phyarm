@@ -1,0 +1,12 @@
+#main_post
+  .post
+    %h1.title= @category.name
+    %p.meta
+      - if authenticated?
+        = link_to "Edit", edit_category_path(@category)
+        = link_to "Destroy", category_path(@category), :method => :delete
+    %div.entry= @category.content
+#side_posts
+  .post
+    %ul
+      = all_categories @category
